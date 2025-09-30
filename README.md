@@ -26,16 +26,17 @@ This project allows users to browse cars, share reviews, rate vehicles, and mana
 ## 🚀 Getting Started
 
 ### 1️⃣ Clone the repo
-```bash
+
 git clone https://github.com/your-username/nfs-car-review.git
 cd nfs-car-review
 
+### 2️⃣ Install dependencies
 npm install
 cd client && npm install
 
-# Run backend
+### 3️⃣ Run the app
+#### Run backend
 npm run server
-
-# Run frontend
+#### Run frontend
 cd client
 npm start
