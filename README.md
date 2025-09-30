@@ -1,3 +1,12 @@
+1-
+<img width="1862" height="899" alt="Screenshot 2025-09-30 121150" src="https://github.com/user-attachments/assets/919048f5-e7ab-48d9-850d-1518312fbd64" />
+2-
+<img width="1917" height="895" alt="Screenshot 2025-09-30 121057" src="https://github.com/user-attachments/assets/bf90f8fc-0083-4dd3-bdef-95a96450fd81" />
+3-
+<img width="1882" height="903" alt="Screenshot 2025-09-30 121300" src="https://github.com/user-attachments/assets/a9fec60a-8b20-4f40-9a19-776f2630cac2" />
+4-
+<img width="1896" height="871" alt="Screenshot 2025-09-30 121241" src="https://github.com/user-attachments/assets/04a13da5-5f64-4122-9560-b6085d527f5e" />
+
 # 🚗 NFS Car Review Website (MERN Stack)
 
 A **dynamic car review platform** inspired by *Need for Speed (NFS)*, built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js) with **Tailwind CSS** for modern styling.  
