@@ -18,11 +18,9 @@ import PrivatePolicy from '../Ex/PrivatePolicy.jsx';
 import Bugatti_Tourbillon from '../Models/Tourbillon.jsx';
 import Bugatti_Chiron from '../Models/Chiron.jsx';
 import Bugatti_Centodice from '../Models/Centodieci.jsx';
-import Aston_Banner from '../img/Bugatti banner.png';
+import Aston_Banner from '../img/astonmartin_banner.webp';
 import Aston_Logo from '../img/aston logo.jpg';
-import Bugatti_Turbillon_img from '../img/Bugatti Tourbillon.jpg';
-import Bugatti_Centodieci_img from '../img/Bugatti-Centodieci-Prototype-02.webp';
-import Bugatti_Chiron_img from '../img/bugatti.jpg';
+import Valkrie_img from '../img/aston martin valkrie.jpg';
 function App() {
     return (
         <Router>
@@ -71,14 +69,38 @@ export const AstonMartin = () => {
                                         Car Brands
                                     </a>
                                     <ul className="dropdown-menu">
-                                        <li><Link to="/Bugatti" className="dropdown-item">Bugatti</Link></li>
-                                        <li><Link to="/Ferrari" className="dropdown-item">Ferrari</Link></li>
-                                        <li><Link to="/Koenigsegg" className="dropdown-item">Koenigsegg</Link></li>
-                                        <li><Link to="/Lamborghini" className="dropdown-item">Lamborghini</Link></li>
-                                        <li><Link to="/RollsRoyce" className="dropdown-item">Rolls Royce</Link></li>
+                                        <li>
+                                            <Link to="/Bugatti" className="dropdown-item">
+                                                Bugatti
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Ferrari" className="dropdown-item">
+                                                Ferrari
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Koenigsegg" className="dropdown-item">
+                                                Koenigsegg
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Lamborghini" className="dropdown-item">
+                                                Lamborghini
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/RollsRoyce" className="dropdown-item">
+                                                Rolls Royce
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/">
+                                        Home
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -99,14 +121,21 @@ export const AstonMartin = () => {
                         <div className="col-xl-6 col-md-6 col-sm-12">
                             <h2 className="section__title header__title">Aston Martin</h2>
                             <p className="header__description">
-                                Aston Martin is a British luxury sports car manufacturer known for blending performance with timeless elegance.
-                                Renowned for its association with James Bond and racing heritage, Aston Martin creates vehicles that deliver both speed
-                                and sophistication. From the DB11 to the Valkyrie hypercar, each model is crafted with British artistry and engineering precision.
+                                Aston Martin is a British luxury sports car manufacturer known for blending performance with timeless
+                                elegance. Renowned for its association with James Bond and racing heritage, Aston Martin creates vehicles
+                                that deliver both speed and sophistication. From the DB11 to the Valkyrie hypercar, each model is crafted
+                                with British artistry and engineering precision.
                             </p>
                         </div>
-                        <div className="col-xl-3 col-md-3 col-sm-12">
-                            <img src={Aston_Logo} alt="Aston Martin Logo" className="header__logo" />
+                        <div className="col-xl-3 col-md-3 col-sm-12 text-center">
+                            <img
+                                src={Aston_Logo}
+                                alt="Aston Martin Logo"
+                                className="header__logo"
+                                style={{ maxWidth: '250px', height: 'auto', marginTop: '80px', marginRight: '280px' }}
+                            />
                         </div>
+
                         <div className="col-xl-3 col-md-3 col-sm-12">
                             <div className="Company__description">
                                 <ul className="bugatti-list">
@@ -141,56 +170,91 @@ export const AstonMartin = () => {
                                 <h2 className="lr">Aston Martin Valkyrie</h2>
                                 <br />
                                 <div className="about__img-container">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Aston_Martin_Valkyrie_Geneva_2019.jpg/640px-Aston_Martin_Valkyrie_Geneva_2019.jpg" alt="Aston Martin Valkyrie" className="about__img" />
+                                    <img src={Valkrie_img} alt="Aston Martin Valkyrie" className="about__img" />
                                     <div className="text-overlay-sub">
                                         <h2>10/10</h2>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-6 col-sm-12">
-                                <br /><br /><br /><br /><br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
                                 <div className="about__data">
                                     <p className="about__description">
-                                        The Aston Martin Valkyrie is a hypercar developed in collaboration with Red Bull Racing, offering a Formula One–inspired
-                                        driving experience. Powered by a naturally aspirated 6.5L V12 hybrid engine, it delivers over 1,100 horsepower.
-                                        The Valkyrie redefines road car performance with extreme aerodynamics and lightweight construction.
+                                        The Aston Martin Valkyrie is a hypercar developed in collaboration with Red Bull Racing, offering a
+                                        Formula One–inspired driving experience. Powered by a naturally aspirated 6.5L V12 hybrid engine, it
+                                        delivers over 1,100 horsepower. The Valkyrie redefines road car performance with extreme
+                                        aerodynamics and lightweight construction.
                                     </p>
-                                    <a href="https://www.astonmartin.com/en-us/models/valkyrie" target="_blank" rel="noreferrer" className="button">Know More</a>
+                                    <a
+                                        href="https://www.astonmartin.com/en-us/models/valkyrie"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="button"
+                                    >
+                                        Know More
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
 
             {/* Footer */}
             <footer className="footer">
                 <div className="footer__container">
                     <div className="footer__content">
-                        <a href="#" className="footer__logo">NFS</a>
+                        <a href="#" className="footer__logo">
+                            NFS
+                        </a>
                         <p className="footer__description">Explore car reviews, specs, and history from the best brands in the world.</p>
                     </div>
                     <div className="footer__content">
                         <p className="footer__logo">Contact us:</p>
                         <p className="footer__description">
-                            Mobile No : +91 9123456789<br />
+                            Mobile No : +91 9123456789
+                            <br />
                             Email : nfs@gmail.com
                         </p>
                     </div>
                     <div className="footer__content">
                         <h3 className="footer__title">Company</h3>
                         <ul className="footer__links__list">
-                            <li><Link to="/PrivatePolicy" className="footer__link">Privacy & Policy</Link></li>
-                            <li><Link to="/AboutUs" className="footer__link">About us</Link></li>
+                            <li>
+                                <Link to="/PrivatePolicy" className="footer__link">
+                                    Privacy & Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/AboutUs" className="footer__link">
+                                    About us
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="footer__content">
                         <p className="footer__logo">Follow us:</p>
                         <div className="social-icons">
-                            <a href="https://www.instagram.com/nfs.44_/" target="_blank" rel="noreferrer"><FaInstagram /></a>
-                            <a href="https://www.youtube.com/channel/UCtbN_9YUU1gckJH8Z3bvOxw" target="_blank" rel="noreferrer"><FaYoutube /></a>
-                            <a href="#" target="_blank" rel="noreferrer"><FaFacebookF /></a>
-                            <a href="#" target="_blank" rel="noreferrer"><FaTwitter /></a>
+                            <a href="https://www.instagram.com/nfs.44_/" target="_blank" rel="noreferrer">
+                                <FaInstagram />
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCtbN_9YUU1gckJH8Z3bvOxw" target="_blank" rel="noreferrer">
+                                <FaYoutube />
+                            </a>
+                            <a href="#" target="_blank" rel="noreferrer">
+                                <FaFacebookF />
+                            </a>
+                            <a href="#" target="_blank" rel="noreferrer">
+                                <FaTwitter />
+                            </a>
                         </div>
                     </div>
                 </div>
