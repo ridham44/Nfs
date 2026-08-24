@@ -2,27 +2,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import React, { useState } from "react";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
-import Signup from "./signup.jsx";
 
-function App() {
-  return (
-    <Router>
-      <main>
-        <Routes>
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </main>
-    </Router>
-  );
-}
 const Login = () => {
   const [loginData, setLoginData] = useState({
     email: "",
@@ -36,29 +18,22 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login Data:", loginData); // Log login data for debugging
 
     try {
       const response = await axios.post(
         "http://localhost:5000/api/login",
         loginData
       );
-      console.log("Response:", response.data); // Log response for debugging
 
       if (response.data.success) {
-        // Check if the response indicates success
         alert("Login successful");
-        localStorage.setItem("user", JSON.stringify(response.data.user)); // Store user data in local storage
+        localStorage.setItem("user", JSON.stringify(response.data.user));
         navigate("/F1");
       } else {
-        alert(response.data.message || "Login failed. Please try again."); // Handle unsuccessful login
+        alert(response.data.message || "Login failed. Please try again.");
       }
     } catch (err) {
-      console.error(
-        "Error during login:",
-        err.response ? err.response.data : err
-      ); // Log error for debugging
-      alert("Login failed. Please try again."); // Alert the user on error
+      alert("Login failed. Please try again.");
     }
   };
 

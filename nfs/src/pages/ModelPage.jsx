@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { companies } from '../data/companies';
 import { getModelById, getModelsByCompany } from '../data/models';
-import { modelImages, bannerImages } from '../data/images';
+import { modelImages, bannerImages, onlineModelImages } from '../data/images';
 import '../App.css';
 
 export default function ModelPage() {
   const { companyId, modelId } = useParams();
+  const [heroImgIndex, setHeroImgIndex] = useState(0);
+  
   const model = getModelById(modelId);
   const company = companies[companyId];
 
@@ -25,7 +27,7 @@ export default function ModelPage() {
     );
   }
 
-  const img = modelImages[model.id] || null;
+  const imgSources = [onlineModelImages[model.id], modelImages[model.id]].filter(Boolean);
   const bannerImg = bannerImages[company.bannerKey] || null;
   const accentColor = company.accentColor || '#fff';
 
@@ -39,7 +41,7 @@ export default function ModelPage() {
     { label: 'Powertrain', value: model.powertrain },
     { label: 'Body Type', value: model.bodyType },
     { label: 'Year', value: model.year },
-    { label: 'Power Output', value: `${model.horsepower} hp` },
+    { label: 'Power Output', value: `${model.horsepower.toLocaleString('en-US')} hp` },
     { label: 'Top Speed', value: `${model.topSpeed} km/h` },
     { label: 'Acceleration', value: `0–100 in ${model.acceleration}s` },
     { label: 'Price', value: model.price },
@@ -51,8 +53,8 @@ export default function ModelPage() {
 
       {/* ── CINEMATIC HERO ──────────────────────────────── */}
       <section className="mp-hero" style={{ '--accent': accentColor }}>
-        {img ? (
-          <img src={img} alt={model.name} className="mp-hero__bg" />
+        {imgSources[heroImgIndex] ? (
+          <img src={imgSources[heroImgIndex]} alt={model.name} className="mp-hero__bg" onError={() => setHeroImgIndex((prev) => prev + 1)} />
         ) : bannerImg ? (
           <img src={bannerImg} alt={company.name} className="mp-hero__bg" />
         ) : (
@@ -81,7 +83,7 @@ export default function ModelPage() {
             </div>
             <div className="mp-hero__divider" />
             <div className="mp-hero__stat">
-              <span className="mp-hero__stat-val">{model.horsepower} hp</span>
+              <span className="mp-hero__stat-val">{model.horsepower.toLocaleString('en-US')} hp</span>
               <span className="mp-hero__stat-lbl">Power Output</span>
             </div>
             <div className="mp-hero__divider" />
@@ -123,17 +125,65 @@ export default function ModelPage() {
           </div>
         </section>
 
-        {/* ── LARGE IMAGE SHOWCASE ──────────────────────── */}
-        {img && (
-          <section className="mp-showcase">
-            <div className="mp-showcase__inner">
-              <img src={img} alt={`${model.name} showcase`} className="mp-showcase__img" />
-              <div className="mp-showcase__caption">
-                <span>{company.name} {model.name} · {model.year}</span>
-              </div>
+        {/* ── EDITORIAL / MORE INFO ─────────────────────── */}
+        <section className="mp-editorial container">
+          <h3 className="mp-editorial__heading">More About the {model.name}</h3>
+
+          <p className="mp-editorial__character">
+            {model.drivingCharacter || `Built around extreme performance and aerodynamic efficiency, the ${model.name} combines enormous power with a level of refinement expected from a premium ${model.bodyType.toLowerCase()}.`}
+          </p>
+
+          <div className="mp-editorial__grid">
+            {/* Performance Card */}
+            <div className="mp-info-card glass-panel">
+              <h4 className="mp-info-card__title">Performance</h4>
+              <ul className="mp-info-list">
+                <InfoRow label="0–100 km/h" value={`${model.acceleration}s`} />
+                {model.accel200 && <InfoRow label="0–200 km/h" value={model.accel200} />}
+                <InfoRow label="Top Speed" value={`${model.topSpeed} km/h`} />
+                <InfoRow label="Horsepower" value={`${model.horsepower.toLocaleString('en-US')} hp`} />
+                {model.torque && <InfoRow label="Torque" value={model.torque} />}
+                {model.weight && <InfoRow label="Weight" value={model.weight} />}
+                {model.powerToWeight && <InfoRow label="Power-to-weight" value={model.powerToWeight} />}
+              </ul>
             </div>
-          </section>
-        )}
+
+            {/* Powertrain Card */}
+            <div className="mp-info-card glass-panel">
+              <h4 className="mp-info-card__title">Powertrain</h4>
+              <ul className="mp-info-list">
+                <InfoRow label="Configuration" value={model.engine} />
+                {model.displacement && <InfoRow label="Displacement" value={model.displacement} />}
+                {model.cylinders && <InfoRow label="Cylinders" value={model.cylinders} />}
+                {model.aspiration && <InfoRow label="Aspiration" value={model.aspiration} />}
+                <InfoRow label="System" value={model.powertrain} />
+                {model.hybridSystem && <InfoRow label="Hybrid System" value={model.hybridSystem} />}
+                {model.electricMotor && <InfoRow label="Electric Motor" value={model.electricMotor} />}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mp-editorial__grid-lower">
+            {/* Design & Engineering */}
+            <div className="mp-info-card glass-panel">
+              <h4 className="mp-info-card__title">Design & Engineering</h4>
+              <p className="mp-info-card__text">
+                {model.designEngineering || `Every aspect of the ${model.name}'s architecture is shaped by a pursuit of maximum performance. Blending lightweight materials with advanced aerodynamic profiles, engineers have delivered unparalleled stability at high speeds without compromising the distinctive ${company.name} design language.`}
+              </p>
+            </div>
+
+            {/* Production / Exclusivity */}
+            <div className="mp-info-card glass-panel">
+              <h4 className="mp-info-card__title">Production & Exclusivity</h4>
+              <ul className="mp-info-list">
+                <InfoRow label="Launch Year" value={model.year} />
+                {model.productionNumbers && <InfoRow label="Production Run" value={model.productionNumbers} />}
+                {model.specialEdition && <InfoRow label="Special Edition" value={model.specialEdition} />}
+                {model.significance && <InfoRow label="Significance" value={model.significance} />}
+              </ul>
+            </div>
+          </div>
+        </section>
 
         {/* ── RELATED MODELS ────────────────────────────── */}
         {related.length > 0 && (
@@ -141,24 +191,8 @@ export default function ModelPage() {
             <p className="overline">More from {company.name}</p>
             <div className="mp-related__grid">
               {related.map((m) => {
-                const rImg = modelImages[m.id] || null;
-                return (
-                  <Link key={m.id} to={`/model/${companyId}/${m.id}`} className="mp-rel-card">
-                    <div className="mp-rel-img-wrap">
-                      {rImg ? (
-                        <img src={rImg} alt={m.name} className="mp-rel-img" />
-                      ) : (
-                        <div className="mc-img-placeholder" style={{ height: '100%' }}>
-                          <span className="mc-placeholder-text">{m.name}</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="mp-rel-body">
-                      <h4 className="mp-rel-name">{m.name}</h4>
-                      <span className="mp-rel-year">{m.year} · {m.horsepower} hp</span>
-                    </div>
-                  </Link>
-                );
+                const rImgSources = [onlineModelImages[m.id], modelImages[m.id]].filter(Boolean);
+                return <RelatedCard key={m.id} m={m} imgSources={rImgSources} companyId={companyId} />;
               })}
             </div>
             <div className="mp-related__cta">
@@ -172,5 +206,46 @@ export default function ModelPage() {
 
       <Footer />
     </>
+  );
+}
+
+
+// ── Sub-component: RelatedCard
+function RelatedCard({ m, imgSources, companyId }) {
+  const [imgIndex, setImgIndex] = useState(0);
+  const currentImg = imgSources && imgSources[imgIndex];
+
+  return (
+    <Link to={`/model/${companyId}/${m.id}`} className="mp-rel-card">
+      <div className="mp-rel-img-wrap">
+        {currentImg ? (
+          <img
+            src={currentImg}
+            alt={m.name}
+            className="mp-rel-img"
+            loading="lazy"
+            onError={() => setImgIndex((prev) => prev + 1)}
+          />
+        ) : (
+          <div className="mc-img-placeholder" style={{ height: '100%' }}>
+            <span className="mc-placeholder-text">{m.name}</span>
+          </div>
+        )}
+      </div>
+      <div className="mp-rel-body">
+        <h4 className="mp-rel-name">{m.name}</h4>
+        <span className="mp-rel-year">{m.year} · {m.horsepower.toLocaleString('en-US')} hp</span>
+      </div>
+    </Link>
+  );
+}
+
+// ── Sub-component: InfoRow — label/value pair for the editorial info cards
+function InfoRow({ label, value }) {
+  return (
+    <li className="mp-info-row">
+      <span className="mp-info-row__label">{label}</span>
+      <span className="mp-info-row__value">{value}</span>
+    </li>
   );
 }

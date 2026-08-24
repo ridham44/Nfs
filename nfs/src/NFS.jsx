@@ -7,15 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { initCookieConsent } from './js/cookie-consent.js';
-import AstonMartin from './company/AstonMartin.jsx';
-
-import Bugatti from './company/Bugatti.jsx';
-import Ferrari from './company/Ferrari.jsx';
-import Koenigsegg from './company/Koenigsegg.jsx';
-import Lamborghini from './company/Lamborghini.jsx';
-import RollsRoyce from './company/RollsRoyce.jsx';
 import AboutUs from './Ex/AboutUs.jsx';
 import PrivatePolicy from './Ex/PrivatePolicy.jsx';
 import Signup from './Ex/signup.jsx';
@@ -23,21 +16,6 @@ import Login from './Ex/login.jsx';
 import Review from './Ex/review.jsx';
 import F1 from './Ex/F1review.jsx';
 import Subscribe from './Ex/subscribe.jsx';
-import Bugatti_Tourbillon from './Models/Tourbillon.jsx';
-import Bugatti_Chiron from './Models/Chiron.jsx';
-import Bugatti_Centodice from './Models/Centodieci.jsx';
-import Ferrari_Daytona from './Models/Daytona.jsx';
-import Ferrari_296Gtb from './Models/Gtb.jsx';
-import Ferrari_Laferrari from './Models/Laferrari.jsx';
-import Koenigsegg_Agera from './Models/Agera.jsx';
-import Koenigsegg_Regera from './Models/Regera.jsx';
-import Koenigsegg_Jesko from './Models/Jesko.jsx';
-import Lamborghini_Centenario from './Models/Centenario.jsx';
-import Lamborghini_Veneno from './Models/Veneno.jsx';
-import Lamborghini_Revuelto from './Models/Revluto.jsx';
-import RollsRoyce_Ghost from './Models/Ghost.jsx';
-import RollsRoyce_Cullinan from './Models/Cullinan.jsx';
-import RollsRoyce_Spectre from './Models/Spectre.jsx';
 import cr1 from './img/02 BUGATTI_Custmer-Car-Gathering.jpg';
 import cr2 from './img/cor2.jpg';
 import bugatti_latest from './img/27 BUGATTI Tourbillon_World Premiere.jpg';
@@ -68,6 +46,19 @@ function ScrollToTop() {
     return null;
 }
 
+function usePrefersReducedMotion() {
+    const [prefersReduced, setPrefersReduced] = useState(
+        () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+    useEffect(() => {
+        const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const handler = (e) => setPrefersReduced(e.matches);
+        query.addEventListener('change', handler);
+        return () => query.removeEventListener('change', handler);
+    }, []);
+    return prefersReduced;
+}
+
 function App() {
     return (
         <Router>
@@ -78,30 +69,8 @@ function App() {
                     {/* ── NEW: Reusable brand + model pages ── */}
                     <Route path="/brand/:companyId" element={<CompanyPage />} />
                     <Route path="/model/:companyId/:modelId" element={<ModelPage />} />
-                    {/* ── Legacy routes (backward compat) ── */}
-                    <Route path="/AstonMartin" element={<AstonMartin />} exact />
-                    <Route path="/Bugatti" element={<Bugatti />} exact />
-                    <Route path="/Ferrari" element={<Ferrari />} exact />
-                    <Route path="/Koenigsegg" element={<Koenigsegg />} exact />
-                    <Route path="/Lamborghini" element={<Lamborghini />} exact />
-                    <Route path="/RollsRoyce" element={<RollsRoyce />} exact />
                     <Route path="/AboutUs" element={<AboutUs />} exact />
                     <Route path="/PrivatePolicy" element={<PrivatePolicy />} exact />
-                    <Route path="/Tourbillon" element={<Bugatti_Tourbillon />} exact />
-                    <Route path="/Chiron" element={<Bugatti_Chiron />} exact />
-                    <Route path="/Centodieci" element={<Bugatti_Centodice />} exact />
-                    <Route path="/Daytona" element={<Ferrari_Daytona />} exact />
-                    <Route path="/Gtb" element={<Ferrari_296Gtb />} exact />
-                    <Route path="/Laferrari" element={<Ferrari_Laferrari />} exact />
-                    <Route path="/Agera" element={<Koenigsegg_Agera />} exact />
-                    <Route path="/Regera" element={<Koenigsegg_Regera />} exact />
-                    <Route path="/Jesko" element={<Koenigsegg_Jesko />} exact />
-                    <Route path="/Revuelto" element={<Lamborghini_Revuelto />} exact />
-                    <Route path="/Veneno" element={<Lamborghini_Veneno />} exact />
-                    <Route path="/Centenario" element={<Lamborghini_Centenario />} exact />
-                    <Route path="/Spectre" element={<RollsRoyce_Spectre />} exact />
-                    <Route path="/Cullinan" element={<RollsRoyce_Cullinan />} exact />
-                    <Route path="/Ghost" element={<RollsRoyce_Ghost />} exact />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/review" element={<Review />} />
@@ -113,10 +82,9 @@ function App() {
     );
 }
 const NFS = () => {
-    
+    const prefersReducedMotion = usePrefersReducedMotion();
 
     useEffect(() => {
-        console.log('Checking for cookie consent...');
         initCookieConsent();
     }, []);
 
@@ -129,7 +97,7 @@ const NFS = () => {
                 {/*--------------------   Hero   --------------------- */}
                 <section className="hero">
                     <div className="hero__carousel-wrap">
-                        <div id="heroCarousel" className="carousel slide hero__carousel" data-bs-ride="carousel">
+                        <div id="heroCarousel" className="carousel slide hero__carousel" data-bs-ride={prefersReducedMotion ? 'false' : 'carousel'}>
                             <div className="carousel-indicators">
                                 <button
                                     type="button"
@@ -184,7 +152,7 @@ const NFS = () => {
                         <div className="row align-items-center g-4">
                             <div className="col-lg-6">
                                 <div className="about__image-container has-bg-image">
-                                    <img src={bugatti_latest} alt="Bugatti Tourbillon watch world premiere" className="about__img" />
+                                    <img src={bugatti_latest} alt="Bugatti Tourbillon watch world premiere" className="about__img" loading="lazy" />
                                     <div className="text-overlay">
                                         <h2>
                                             10<span className="text-overlay__den">/10</span>
@@ -203,7 +171,7 @@ const NFS = () => {
                                         automotive creations. With its bold design and high-end materials, the Bugatti Tourbillon is a
                                         true statement piece for collectors and enthusiasts alike.
                                     </p>
-                                    <Link to="/Tourbillon" className="button">
+                                    <Link to="/model/bugatti/bugatti_tourbillon" className="button">
                                         Know More <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -223,7 +191,7 @@ const NFS = () => {
                                 <h1 className="popular__title">BUGATTI</h1>
                                 <h3 className="popular__subtitle">Centodieci</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={bugatti_centodice_img} alt="Bugatti Centodieci" className="popular__img" />
+                                    <img src={bugatti_centodice_img} alt="Bugatti Centodieci" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -235,13 +203,13 @@ const NFS = () => {
                                         <span className="stat-label">Top Speed</span>
                                     </div>
                                     <div className="popular__data-group">
-                                        <span className="stat-value">1578 hp</span>
+                                        <span className="stat-value">1,578 hp</span>
                                         <span className="stat-label">Power</span>
                                     </div>
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$8.6M</h3>
-                                    <Link to="/Centodieci" className="button btn-premium">
+                                    <Link to="/model/bugatti/bugatti_centodieci" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -252,7 +220,7 @@ const NFS = () => {
                                 <h1 className="popular__title">FERRARI</h1>
                                 <h3 className="popular__subtitle">296 GTB</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={ferrari_296gtb_img} alt="Ferrari 296 GTB" className="popular__img" />
+                                    <img src={ferrari_296gtb_img} alt="Ferrari 296 GTB" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -270,7 +238,7 @@ const NFS = () => {
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$323K</h3>
-                                    <Link to="/Gtb" className="button btn-premium">
+                                    <Link to="/model/ferrari/ferrari_296gtb" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -281,7 +249,7 @@ const NFS = () => {
                                 <h1 className="popular__title">LAMBORGHINI</h1>
                                 <h3 className="popular__subtitle">Revuelto</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={lamborghini_revuelto_img} alt="Lamborghini Revuelto" className="popular__img" />
+                                    <img src={lamborghini_revuelto_img} alt="Lamborghini Revuelto" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -293,13 +261,13 @@ const NFS = () => {
                                         <span className="stat-label">Top Speed</span>
                                     </div>
                                     <div className="popular__data-group">
-                                        <span className="stat-value">1000 hp</span>
+                                        <span className="stat-value">1,000 hp</span>
                                         <span className="stat-label">Power</span>
                                     </div>
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$605K</h3>
-                                    <Link to="/Revuelto" className="button btn-premium">
+                                    <Link to="/model/lamborghini/lamborghini_revuelto" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -310,7 +278,7 @@ const NFS = () => {
                                 <h1 className="popular__title">ROLLS-ROYCE</h1>
                                 <h3 className="popular__subtitle">Spectre</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={rollroyce_spectre_img} alt="Rolls-Royce Spectre" className="popular__img" />
+                                    <img src={rollroyce_spectre_img} alt="Rolls-Royce Spectre" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -322,13 +290,13 @@ const NFS = () => {
                                         <span className="stat-label">Top Speed</span>
                                     </div>
                                     <div className="popular__data-group">
-                                        <span className="stat-value">1500 hp</span>
+                                        <span className="stat-value">1,500 hp</span>
                                         <span className="stat-label">Power</span>
                                     </div>
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$423K</h3>
-                                    <Link to="/Spectre" className="button btn-premium">
+                                    <Link to="/model/rollsroyce/rollsroyce_spectre" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -339,7 +307,7 @@ const NFS = () => {
                 {/*--------------------     F1 coming section    --------------------- */}
                 <section className="section f1" id="f1">
                     <div className="f1__media">
-                        <img src={f1} alt="" className="f1__bg" aria-hidden="true" />
+                        <img src={f1} alt="" className="f1__bg" aria-hidden="true" loading="lazy" />
                         <div className="f1__scrim"></div>
                     </div>
                     <div className="container f1__container">
@@ -362,7 +330,7 @@ const NFS = () => {
                             </div>
                             <div className="col-lg-6">
                                 <div className="f1__car-frame">
-                                    <img src={f1_car} alt="Formula 1 car" className="f1__car" />
+                                    <img src={f1_car} alt="Formula 1 car" className="f1__car" loading="lazy" />
                                 </div>
                             </div>
                         </div>
@@ -381,7 +349,7 @@ const NFS = () => {
                                 <h1 className="popular__title">BUGATTI</h1>
                                 <h3 className="popular__subtitle">Chiron Sports</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={bugatti_chiron_img} alt="Bugatti Chiron Sports" className="popular__img" />
+                                    <img src={bugatti_chiron_img} alt="Bugatti Chiron Sports" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -393,13 +361,13 @@ const NFS = () => {
                                         <span className="stat-label">Top Speed</span>
                                     </div>
                                     <div className="popular__data-group">
-                                        <span className="stat-value">1500 hp</span>
+                                        <span className="stat-value">1,500 hp</span>
                                         <span className="stat-label">Power</span>
                                     </div>
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$3.3M</h3>
-                                    <Link to="/Chiron" className="button btn-premium">
+                                    <Link to="/model/bugatti/bugatti_chiron" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -410,7 +378,7 @@ const NFS = () => {
                                 <h1 className="popular__title">LAMBORGHINI</h1>
                                 <h3 className="popular__subtitle">Centenario</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={lamborghini_centenario_img} alt="Lamborghini Centenario" className="popular__img" />
+                                    <img src={lamborghini_centenario_img} alt="Lamborghini Centenario" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -428,7 +396,7 @@ const NFS = () => {
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$2.3M</h3>
-                                    <Link to="/Centenario" className="button btn-premium">
+                                    <Link to="/model/lamborghini/lamborghini_centenario" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -439,7 +407,7 @@ const NFS = () => {
                                 <h1 className="popular__title">KOENIGSEGG</h1>
                                 <h3 className="popular__subtitle">Jesko</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={koenigsegg_jesko_img} alt="Koenigsegg Jesko" className="popular__img" />
+                                    <img src={koenigsegg_jesko_img} alt="Koenigsegg Jesko" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -451,13 +419,13 @@ const NFS = () => {
                                         <span className="stat-label">Top Speed</span>
                                     </div>
                                     <div className="popular__data-group">
-                                        <span className="stat-value">1600 hp</span>
+                                        <span className="stat-value">1,600 hp</span>
                                         <span className="stat-label">Power</span>
                                     </div>
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$3.1M</h3>
-                                    <Link to="/Jesko" className="button btn-premium">
+                                    <Link to="/model/koenigsegg/koenigsegg_jesko" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -468,7 +436,7 @@ const NFS = () => {
                                 <h1 className="popular__title">FERRARI</h1>
                                 <h3 className="popular__subtitle">LaFerrari</h3>
                                 <div className="popular__img-wrapper">
-                                    <img src={ferrari_laferrari_img} alt="Ferrari LaFerrari" className="popular__img" />
+                                    <img src={ferrari_laferrari_img} alt="Ferrari LaFerrari" className="popular__img" loading="lazy" />
                                 </div>
                                 <div className="popular__data">
                                     <div className="popular__data-group">
@@ -486,7 +454,7 @@ const NFS = () => {
                                 </div>
                                 <div className="popular__footer">
                                     <h3 className="popular__price">$1.4M</h3>
-                                    <Link to="/Laferrari" className="button btn-premium">
+                                    <Link to="/model/ferrari/ferrari_laferrari" className="button btn-premium">
                                         Explore <span className="button__arrow">&rarr;</span>
                                     </Link>
                                 </div>
@@ -502,20 +470,20 @@ const NFS = () => {
                             <span className="section__kicker">Trusted Marques</span>
                         </div>
                         <div className="brands__grid">
-                            <Link to="/Bugatti" className="brands__item">
-                                <img src={logo1} alt="Bugatti" />
+                            <Link to="/brand/bugatti" className="brands__item">
+                                <img src={logo1} alt="Bugatti" loading="lazy" />
                             </Link>
-                            <Link to="/Ferrari" className="brands__item">
-                                <img src={logo2} alt="Ferrari" />
+                            <Link to="/brand/ferrari" className="brands__item">
+                                <img src={logo2} alt="Ferrari" loading="lazy" />
                             </Link>
-                            <Link to="/Koenigsegg" className="brands__item">
-                                <img src={logo3} alt="Koenigsegg" />
+                            <Link to="/brand/koenigsegg" className="brands__item">
+                                <img src={logo3} alt="Koenigsegg" loading="lazy" />
                             </Link>
-                            <Link to="/Lamborghini" className="brands__item">
-                                <img src={logo4} alt="Lamborghini" />
+                            <Link to="/brand/lamborghini" className="brands__item">
+                                <img src={logo4} alt="Lamborghini" loading="lazy" />
                             </Link>
-                            <Link to="/RollsRoyce" className="brands__item">
-                                <img src={logo5} alt="Rolls-Royce" />
+                            <Link to="/brand/rollsroyce" className="brands__item">
+                                <img src={logo5} alt="Rolls-Royce" loading="lazy" />
                             </Link>
                         </div>
                     </div>
@@ -525,7 +493,7 @@ const NFS = () => {
                 <section className="section newsletter">
                     <div className="container">
                         <div className="newsletter__panel">
-                            <img src={offer_bg} alt="" className="newsletter__bg" aria-hidden="true" />
+                            <img src={offer_bg} alt="" className="newsletter__bg" aria-hidden="true" loading="lazy" />
                             <div className="newsletter__scrim"></div>
                             <div className="newsletter__content">
                                 <span className="section__kicker section__kicker--accent">Stay Ahead</span>
@@ -542,7 +510,7 @@ const NFS = () => {
                                     Subscribe Now <span className="button__arrow">&rarr;</span>
                                 </Link>
                             </div>
-                            <img src={offer} alt="" className="newsletter__car" aria-hidden="true" />
+                            <img src={offer} alt="" className="newsletter__car" aria-hidden="true" loading="lazy" />
                         </div>
                     </div>
                 </section>

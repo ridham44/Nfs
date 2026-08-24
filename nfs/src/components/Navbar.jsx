@@ -29,6 +29,7 @@ const Navbar = () => {
   }, []);
 
   const isActive = (path) => location.pathname === path;
+  const isBrandRoute = location.pathname.startsWith('/brand') || location.pathname.startsWith('/model');
 
   return (
     <header id="header" className={`glass-header ${scrolled ? 'glass-header--scrolled' : ''}`}>
@@ -68,16 +69,15 @@ const Navbar = () => {
 
               {/* Brands mega-dropdown */}
               <li className="nav-item dropdown">
-                <a
-                  className="nav-link nfs-link dropdown-toggle"
-                  href="#"
+                <button
+                  type="button"
+                  className={`nav-link nfs-link dropdown-toggle ${isBrandRoute ? 'nfs-link--active' : ''}`}
                   id="brandsDropdown"
-                  role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Brands
-                </a>
+                </button>
                 <div className="dropdown-menu nfs-mega-dropdown" aria-labelledby="brandsDropdown">
                   <div className="nfs-mega-inner">
                     {brands.map((b) => (

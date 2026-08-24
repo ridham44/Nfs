@@ -2,26 +2,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import React, { useState } from "react";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
-import Login from "./login.jsx"
-function App() {
-  return (
-    <Router>
-      <main>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </main>
-    </Router>
-  );
-}
+
 const Signup = () => {
   const [signupData, setSignupData] = useState({
     name: "",
@@ -31,7 +14,7 @@ const Signup = () => {
     confirmPassword: "",
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSignupData({ ...signupData, [e.target.name]: e.target.value });
@@ -49,10 +32,9 @@ const Signup = () => {
         signupData
       );
       alert(response.data.message);
-      console.log("Signup successful"); 
-      navigate("/login"); 
+      navigate("/login");
     } catch (err) {
-      console.error(err);
+      alert("Signup failed. Please try again.");
     }
   };
 

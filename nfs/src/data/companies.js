@@ -112,7 +112,7 @@ export const companies = {
       "Dr. Ing. h.c. F. Porsche AG is a German automobile manufacturer specialising in high-performance sports cars, SUVs, and sedans. Porsche's motorsport DNA, embodied in the iconic 911, makes it one of the most technically accomplished and beloved brands in the world.",
     accentColor: '#a0aec0',
     bannerKey: 'porsche',
-    logoKey: null,
+    logoKey: 'porscheLogo',
   },
   mclaren: {
     id: 'mclaren',
@@ -128,7 +128,7 @@ export const companies = {
       'McLaren Automotive Limited designs and manufactures high-performance sports cars and supercars in Woking, Surrey. Born from Formula 1 innovation, every McLaren road car is a direct application of motorsport technology, delivering extraordinary performance with surgical precision.',
     accentColor: '#f6ad55',
     bannerKey: 'mclaren',
-    logoKey: null,
+    logoKey: 'mclarenLogo',
   },
   pagani: {
     id: 'pagani',
@@ -144,7 +144,7 @@ export const companies = {
       'Pagani Automobili S.p.A. is an Italian manufacturer of sports cars and carbon fibre components. Founded by Horacio Pagani, the brand is revered for treating every car as a work of art — obsessing over every detail of aerodynamics, materials science, and mechanical beauty.',
     accentColor: '#76e4f7',
     bannerKey: 'pagani',
-    logoKey: null,
+    logoKey: 'paganiLogo',
   },
   pininfarina: {
     id: 'pininfarina',
@@ -160,7 +160,7 @@ export const companies = {
       "Automobili Pininfarina is the Italian ultra-luxury electric vehicle brand, rooted in a century of legendary design heritage. The brand's hyper GT cars combine the aesthetics of the finest Italian coachbuilders with cutting-edge electric powertrains.",
     accentColor: '#fc8181',
     bannerKey: 'pininfarina',
-    logoKey: null,
+    logoKey: 'pininfarinaLogo',
   },
   maserati: {
     id: 'maserati',
@@ -176,7 +176,7 @@ export const companies = {
       'Maserati S.p.A. is an Italian luxury vehicle manufacturer established in Bologna. The trident-badged brand offers a distinctive Italian alternative to German and British luxury marques, combining elegant Latin styling with genuine performance credentials and motorsport heritage.',
     accentColor: '#63b3ed',
     bannerKey: 'maserati',
-    logoKey: null,
+    logoKey: 'maseratiLogo',
   },
   rimac: {
     id: 'rimac',
@@ -192,7 +192,7 @@ export const companies = {
       'Rimac Automobili is a Croatian electric hypercar manufacturer and technology provider that is rewriting the rulebook on what electric vehicles are capable of. The Nevera hypercar holds multiple world records and has made Rimac a key player in the global automotive industry.',
     accentColor: '#68d391',
     bannerKey: 'rimac',
-    logoKey: null,
+    logoKey: 'rimacLogo',
   },
 };
 

@@ -220,15 +220,7 @@ export const models = {
     description: 'The Phantom is the definitive Rolls-Royce — the car against which all others are measured. In its eighth generation, the Phantom uses an all-new spaceframe aluminium architecture and a hand-built 563 hp twin-turbo V12 engine.',
     imgUrl: null,
   },
-  rollsroyce_phantom_ext: {
-    id: 'rollsroyce_phantom_ext', companyId: 'rollsroyce',
-    name: 'Phantom Extended', year: 2022,
-    powertrain: 'Petrol', bodyType: 'Sedan', engine: 'V12 6.75L Twin-Turbo',
-    horsepower: 563, topSpeed: 250, acceleration: 5.3,
-    price: '$630K', priceRaw: 630000,
-    description: 'The Phantom Extended adds 220 mm to the standard Phantom\'s wheelbase, creating an unmatched private lounge experience for rear-seat passengers. The Gallery dashboard and bespoke tailoring options make every Extended unique.',
-    imgUrl: null,
-  },
+  
   rollsroyce_ghost: {
     id: 'rollsroyce_ghost', companyId: 'rollsroyce',
     name: 'Ghost', year: 2020,
@@ -238,15 +230,7 @@ export const models = {
     description: 'The Ghost is designed for the post-opulence era — a more driver-focused Rolls-Royce that wears its luxury with quiet confidence. The second-generation Ghost rides on an all-new aluminium spaceframe and features an industry-first Planar Suspension system.',
     imgUrl: null,
   },
-  rollsroyce_ghost_ext: {
-    id: 'rollsroyce_ghost_ext', companyId: 'rollsroyce',
-    name: 'Ghost Extended', year: 2020,
-    powertrain: 'Petrol', bodyType: 'Sedan', engine: 'V12 6.75L Twin-Turbo',
-    horsepower: 563, topSpeed: 250, acceleration: 4.8,
-    price: '$420K', priceRaw: 420000,
-    description: 'The Ghost Extended offers 170 mm of additional rear legroom without compromising the driving character of the standard Ghost. Rear-seat passengers enjoy an enhanced lounge atmosphere while retaining the sporting personality of the model.',
-    imgUrl: null,
-  },
+  
   rollsroyce_cullinan: {
     id: 'rollsroyce_cullinan', companyId: 'rollsroyce',
     name: 'Cullinan', year: 2018,
@@ -294,15 +278,6 @@ export const models = {
     description: 'The DB12 is Aston Martin\'s definitive super tourer. Featuring a new 671 hp 4.0-litre twin-turbo V8, it blends the traditional British GT formula of long-distance refinement and luxury with a significant uplift in driver engagement.',
     imgUrl: null,
   },
-  astonmartin_db12_volante: {
-    id: 'astonmartin_db12_volante', companyId: 'astonmartin',
-    name: 'DB12 Volante', year: 2023,
-    powertrain: 'Petrol', bodyType: 'Convertible', engine: 'V8 4.0L Twin-Turbo',
-    horsepower: 671, topSpeed: 325, acceleration: 3.6,
-    price: '$285K', priceRaw: 285000,
-    description: 'The DB12 Volante is the open-top expression of Aston Martin\'s super touring GT. Its hydraulic soft top deploys in just 14 seconds and features acoustic glazing to maintain cabin refinement.',
-    imgUrl: null,
-  },
   astonmartin_valhalla: {
     id: 'astonmartin_valhalla', companyId: 'astonmartin',
     name: 'Valhalla', year: 2024,
@@ -321,13 +296,13 @@ export const models = {
     description: 'The Valkyrie is the ultimate expression of what a road car can be when designed in collaboration with Red Bull Racing\'s Adrian Newey. A naturally aspirated Cosworth V12 paired with a kinetic energy recovery system creates 1,139 hp from a car that weighs just over 1,000 kg.',
     imgUrl: null,
   },
-  astonmartin_dbs770: {
-    id: 'astonmartin_dbs770', companyId: 'astonmartin',
-    name: 'DBS 770 Ultimate', year: 2023,
-    powertrain: 'Petrol', bodyType: 'GT', engine: 'V12 5.2L Twin-Turbo',
-    horsepower: 770, topSpeed: 340, acceleration: 3.2,
-    price: '$395K', priceRaw: 395000,
-    description: 'The DBS 770 Ultimate is the final and most powerful front-engined V12 Aston Martin ever made. A fitting farewell to the DBS nameplate, with 770 hp from an upgraded twin-turbo V12 and the most involving DBS driving experience.',
+  astonmartin_valiant: {
+    id: 'astonmartin_valiant', companyId: 'astonmartin',
+    name: 'Valiant', year: 2024,
+    powertrain: 'Petrol', bodyType: 'Supercar', engine: 'V12 5.2L Twin-Turbo',
+    horsepower: 745, topSpeed: 322, acceleration: 3.4,
+    price: '$2.5M', priceRaw: 2500000,
+    description: 'The Aston Martin Valiant is a hardcore, track-focused evolution of the Valour. Commissioned initially by Fernando Alonso, it features a bespoke 745 hp V12, a six-speed manual gearbox, and aggressive aerodynamics heavily inspired by the "Muncher" Le Mans racer.',
     imgUrl: null,
   },
 
@@ -341,31 +316,23 @@ export const models = {
     description: 'The Taycan Turbo GT is the most powerful Porsche series-production road car ever made. Its 1,092 hp electric powertrain gives it the quickest 0–100 km/h time of any production Porsche at 2.2 seconds, available with an exclusive Weissach Package.',
     imgUrl: null,
   },
-  porsche_911_gt3rs: {
-    id: 'porsche_911_gt3rs', companyId: 'porsche',
-    name: '911 GT3 RS', year: 2022,
+  porsche_913_gt3rs: {
+    id: 'porsche_913_gt3rs', companyId: 'porsche',
+    name: '913 GT3 RS', year: 2024,
     powertrain: 'Petrol', bodyType: 'Supercar', engine: 'Flat-6 4.0L NA',
     horsepower: 525, topSpeed: 296, acceleration: 3.2,
-    price: '$225K', priceRaw: 225000,
-    description: 'The 911 GT3 RS is the most track-focused naturally aspirated 911 ever created. Its enormous front and rear aerodynamic package generates unprecedented downforce for the 911 model family, while the high-revving 4.0-litre Flat-6 engine produces 525 hp.',
+    price: '$250K', priceRaw: 250000,
+    description: 'The 913 GT3 RS pushes the absolute limits of naturally aspirated performance and aerodynamic engineering. With its immense wing and track-focused suspension, it delivers unparalleled circuit precision.',
     imgUrl: null,
   },
-  porsche_911_turbos: {
-    id: 'porsche_911_turbos', companyId: 'porsche',
-    name: '911 Turbo S', year: 2020,
-    powertrain: 'Petrol', bodyType: 'Supercar', engine: 'Flat-6 3.8L Twin-Turbo',
-    horsepower: 641, topSpeed: 330, acceleration: 2.7,
-    price: '$230K', priceRaw: 230000,
-    description: 'The 911 Turbo S is the benchmark all-weather supercar. With 641 hp from a 3.8-litre twin-turbo flat-six and all-wheel drive, it achieves a 0–100 km/h time of 2.7 seconds in absolute stability regardless of conditions.',
-    imgUrl: null,
-  },
-  porsche_911_gt3: {
-    id: 'porsche_911_gt3', companyId: 'porsche',
-    name: '911 GT3', year: 2021,
-    powertrain: 'Petrol', bodyType: 'Supercar', engine: 'Flat-6 4.0L NA',
-    horsepower: 503, topSpeed: 320, acceleration: 3.4,
-    price: '$165K', priceRaw: 165000,
-    description: 'The 911 GT3 is the purist\'s 911 — a high-revving 9,000 rpm naturally aspirated flat-six in a driver-focused, rear-wheel-drive package. It can be optioned with a traditional manual gearbox, making it one of the last great analogue sports cars.',
+  
+  porsche_mission_x: {
+    id: 'porsche_mission_x', companyId: 'porsche',
+    name: 'Mission X', year: 2024,
+    powertrain: 'Electric', bodyType: 'Hypercar', engine: 'High-Performance Electric Drive',
+    horsepower: 1500, topSpeed: 350, acceleration: 1.9,
+    price: '$1.5M', priceRaw: 1500000,
+    description: 'The Porsche Mission X is a spectacular reinterpretation of a hypercar, featuring Le Mans-style doors that open upwards and forward, and a high-performance, exceptionally lightweight electric powertrain.',
     imgUrl: null,
   },
   porsche_911_carrera_gts: {
@@ -397,22 +364,13 @@ export const models = {
   },
 
   // ── KOENIGSEGG ───────────────────────────────────────────
-  koenigsegg_jesko_absolut: {
-    id: 'koenigsegg_jesko_absolut', companyId: 'koenigsegg',
-    name: 'Jesko Absolut', year: 2020,
+  koenigsegg_jesko: {
+    id: 'koenigsegg_jesko', companyId: 'koenigsegg',
+    name: 'Jesko', year: 2020,
     powertrain: 'Petrol', bodyType: 'Hypercar', engine: 'V8 5.0L Twin-Turbo',
     horsepower: 1600, topSpeed: 531, acceleration: 2.5,
     price: '$3.4M', priceRaw: 3400000,
-    description: 'The Jesko Absolut is theoretically the fastest car ever designed — engineered to reach a top speed of 531 km/h (330 mph). Producing 1,600 hp on E85 fuel, it features a revolutionary 9-speed Light Speed Transmission with near-instantaneous gear changes.',
-    imgUrl: null,
-  },
-  koenigsegg_jesko_attack: {
-    id: 'koenigsegg_jesko_attack', companyId: 'koenigsegg',
-    name: 'Jesko Attack', year: 2020,
-    powertrain: 'Petrol', bodyType: 'Hypercar', engine: 'V8 5.0L Twin-Turbo',
-    horsepower: 1600, topSpeed: 300, acceleration: 2.5,
-    price: '$3.4M', priceRaw: 3400000,
-    description: 'The Jesko Attack is the track-focused sibling of the Absolut, generating over 1,000 kg of downforce to keep its 1,600 hp on the circuit. A shorter gearing strategy maximises lateral performance over outright top speed.',
+    description: 'The Koenigsegg Jesko is available in two distinct configurations: the track-focused Attack generating immense downforce, and the Absolut designed for extreme top speed, theoretically capable of reaching over 531 km/h (330 mph).',
     imgUrl: null,
   },
   koenigsegg_gemera: {
@@ -462,13 +420,13 @@ export const models = {
   },
 
   // ── McLAREN ──────────────────────────────────────────────
-  mclaren_w1: {
-    id: 'mclaren_w1', companyId: 'mclaren',
-    name: 'W1', year: 2024,
-    powertrain: 'Hybrid', bodyType: 'Hypercar', engine: 'V8 4.0L Twin-Turbo + e-motor',
-    horsepower: 1275, topSpeed: 350, acceleration: 2.7,
-    price: '$2.1M', priceRaw: 2100000,
-    description: 'The W1 is McLaren\'s most extreme road car ever — the spiritual successor to the F1 and P1. Using F1-derived hybrid technology including a battery pack mounted at the driver\'s back, the W1 achieves 1,275 hp and uses active aerodynamics that generate 1,000+ kg of downforce.',
+  mclaren_p1: {
+    id: 'mclaren_p1', companyId: 'mclaren',
+    name: 'P1', year: 2013,
+    powertrain: 'Hybrid', bodyType: 'Hypercar', engine: 'V8 3.8L Twin-Turbo + e-motor',
+    horsepower: 903, topSpeed: 350, acceleration: 2.8,
+    price: '$1.15M', priceRaw: 1150000,
+    description: 'The McLaren P1 is a groundbreaking plug-in hybrid hypercar and part of the legendary "Holy Trinity". Combining a 3.8-litre twin-turbo V8 with an electric motor, it introduced F1-derived active aerodynamics and instant torque fill to the road.',
     imgUrl: null,
   },
   mclaren_750s: {
@@ -498,13 +456,13 @@ export const models = {
     description: 'The 765LT is the most driver-focused Longtail McLaren since the legendary F1 GTR Longtail. At just 80 kg above base kerb weight yet producing 765 hp, the LT formula strips out luxury to deliver pure, focused performance.',
     imgUrl: null,
   },
-  mclaren_720s: {
-    id: 'mclaren_720s', companyId: 'mclaren',
-    name: '720S', year: 2017,
-    powertrain: 'Petrol', bodyType: 'Supercar', engine: 'V8 4.0L Twin-Turbo',
-    horsepower: 720, topSpeed: 341, acceleration: 2.9,
-    price: '$299K', priceRaw: 299000,
-    description: 'The 720S was McLaren\'s second-generation Super Series car, radically more capable than the 650S it replaced. Its active aerodynamics, ProActive Chassis Control II, and carbon monocoque architecture create a car of extraordinary dynamics.',
+  mclaren_w1: {
+    id: 'mclaren_w1', companyId: 'mclaren',
+    name: 'W1', year: 2024,
+    powertrain: 'Hybrid', bodyType: 'Hypercar', engine: 'V8 4.0L Twin-Turbo + e-motor',
+    horsepower: 1275, topSpeed: 350, acceleration: 2.7,
+    price: '$2.1M', priceRaw: 2100000,
+    description: 'The W1 is McLaren\'s most extreme road car ever — the spiritual successor to the F1 and P1. Using F1-derived hybrid technology including a battery pack mounted at the driver\'s back, the W1 achieves 1,275 hp and uses active aerodynamics that generate 1,000+ kg of downforce.',
     imgUrl: null,
   },
   mclaren_senna: {
@@ -536,24 +494,8 @@ export const models = {
     description: 'The Utopia is Pagani\'s most refined creation — a car that reconciles extreme performance with everyday usability in a way no previous Pagani has achieved. Its Mercedes-AMG V12 produces 864 hp, and the interior is a hand-crafted masterpiece of aluminium, leather, and bespoke carbon.',
     imgUrl: null,
   },
-  pagani_huayra: {
-    id: 'pagani_huayra', companyId: 'pagani',
-    name: 'Huayra', year: 2011,
-    powertrain: 'Petrol', bodyType: 'Hypercar', engine: 'V12 6.0L Twin-Turbo (Mercedes-AMG)',
-    horsepower: 730, topSpeed: 380, acceleration: 3.3,
-    price: '$2.6M', priceRaw: 2600000,
-    description: 'The Huayra (named after an Andean deity of wind) succeeded the Zonda as Pagani\'s flagship. Its active aerodynamic flaps — four independently controlled, movable aerofoils — give it unique aerodynamic control for varying conditions.',
-    imgUrl: null,
-  },
-  pagani_huayra_roadster: {
-    id: 'pagani_huayra_roadster', companyId: 'pagani',
-    name: 'Huayra Roadster', year: 2017,
-    powertrain: 'Petrol', bodyType: 'Roadster', engine: 'V12 6.0L Twin-Turbo (Mercedes-AMG)',
-    horsepower: 764, topSpeed: 340, acceleration: 3.1,
-    price: '$3.0M', priceRaw: 3000000,
-    description: 'The Huayra Roadster is lighter than the Coupé thanks to an entirely new Carbotitanium monocoque chassis. With 764 hp and an open-air cabin, it provides one of the most theatrical driving experiences available.',
-    imgUrl: null,
-  },
+
+  
   pagani_huayra_bc: {
     id: 'pagani_huayra_bc', companyId: 'pagani',
     name: 'Huayra BC', year: 2016,
@@ -592,60 +534,20 @@ export const models = {
   },
 
   // ── PININFARINA ──────────────────────────────────────────
-  pininfarina_battista: {
-    id: 'pininfarina_battista', companyId: 'pininfarina',
-    name: 'Battista', year: 2023,
-    powertrain: 'Electric', bodyType: 'Hypercar', engine: 'Quad Electric Motors',
-    horsepower: 1877, topSpeed: 350, acceleration: 1.86,
-    price: '$2.5M', priceRaw: 2500000,
-    description: 'Named after the company\'s founder, the Battista is Automobili Pininfarina\'s debut hypercar — and with 1,877 hp, the most powerful Italian car ever made. Its Italian-crafted body houses a 120 kWh battery offering exceptional range alongside breathtaking performance.',
-    imgUrl: null,
-  },
+  
   pininfarina_b95: {
     id: 'pininfarina_b95', companyId: 'pininfarina',
     name: 'B95', year: 2023,
     powertrain: 'Electric', bodyType: 'Barchetta', engine: 'Quad Electric Motors',
     horsepower: 1877, topSpeed: 320, acceleration: 2.0,
     price: '$5.0M', priceRaw: 5000000,
-    description: 'The B95 is Pininfarina\'s Barchetta — the most dramatic expression of Italian open-air motoring for the electric age. Its name evokes 95 years of legendary Pininfarina design history, celebrating the brand\'s centenary.',
+    description: 'The B95 is Pininfarina\'s Barchetta — the most dramatic expression of Italian open-air motoring for the electric age. Its name evokes 95 years of legendary Pininfarina design history, marking the run-up to the brand\'s upcoming centenary.',
     imgUrl: null,
   },
-  pininfarina_b95_gotham: {
-    id: 'pininfarina_b95_gotham', companyId: 'pininfarina',
-    name: 'B95 Gotham Edition', year: 2023,
-    powertrain: 'Electric', bodyType: 'Barchetta', engine: 'Quad Electric Motors',
-    horsepower: 1877, topSpeed: 320, acceleration: 2.0,
-    price: '$5.5M', priceRaw: 5500000,
-    description: 'The B95 Gotham Edition is a dramatic, dark-themed special variant of the B95 Barchetta — a limited one-of-a-kind creation showcasing bespoke Gotham exterior and interior treatments with a sinister visual identity.',
-    imgUrl: null,
-  },
-  pininfarina_b95_darkknight: {
-    id: 'pininfarina_b95_darkknight', companyId: 'pininfarina',
-    name: 'B95 Dark Knight', year: 2023,
-    powertrain: 'Electric', bodyType: 'Barchetta', engine: 'Quad Electric Motors',
-    horsepower: 1877, topSpeed: 320, acceleration: 2.0,
-    price: '$5.5M', priceRaw: 5500000,
-    description: 'The B95 Dark Knight Edition features blacked-out bodywork with carbon fibre detailing throughout, creating one of the most visually striking open-top hypercars ever conceived. A bespoke commission honouring the concept of darkness and power.',
-    imgUrl: null,
-  },
-  pininfarina_sergio: {
-    id: 'pininfarina_sergio', companyId: 'pininfarina',
-    name: 'Sergio', year: 2013,
-    powertrain: 'Petrol', bodyType: 'Roadster', engine: 'Ferrari V8 4.5L NA',
-    horsepower: 562, topSpeed: 320, acceleration: 3.4,
-    price: '$3.0M', priceRaw: 3000000,
-    description: 'The Sergio is a one-off concept that became reality — six units were produced honouring Sergio Pininfarina. Based on the Ferrari 458 Spider, its dramatic two-tone design and windscreen-free cabin created a sensation at the Geneva Motor Show.',
-    imgUrl: null,
-  },
-  pininfarina_teorema: {
-    id: 'pininfarina_teorema', companyId: 'pininfarina',
-    name: 'Teorema', year: 2021,
-    powertrain: 'Electric', bodyType: 'Sedan', engine: 'Electric',
-    horsepower: 1877, topSpeed: 300, acceleration: 3.0,
-    price: 'Concept', priceRaw: 0,
-    description: 'The Teorema is Pininfarina\'s vision for a luxury autonomous EV concept car. It challenges conventional design thinking, featuring a glass-domed cabin, lounge interior, and an entirely panoramic experience — exploring how premium mobility might evolve.',
-    imgUrl: null,
-  },
+  
+  
+  
+  
   pininfarina_pura_vision: {
     id: 'pininfarina_pura_vision', companyId: 'pininfarina',
     name: 'PURA Vision', year: 2023,
@@ -738,51 +640,6 @@ export const models = {
     horsepower: 1914, topSpeed: 412, acceleration: 1.97,
     price: '$2.4M', priceRaw: 2400000,
     description: 'The Rimac Nevera (named after a sudden Adriatic storm) is a world-record-breaking electric hypercar. Its four-motor torque vectoring system delivers unmatched precision, while its 1,914 hp enables a 0–100 km/h time of just 1.97 seconds.',
-    imgUrl: null,
-  },
-  rimac_nevera_time_attack: {
-    id: 'rimac_nevera_time_attack', companyId: 'rimac',
-    name: 'Nevera Time Attack', year: 2023,
-    powertrain: 'Electric', bodyType: 'Hypercar', engine: 'Quad Electric Motors',
-    horsepower: 1914, topSpeed: 412, acceleration: 1.97,
-    price: 'Special', priceRaw: 0,
-    description: 'The Nevera Time Attack edition was optimised for record-breaking performance runs, featuring a specially developed software update, adjusted aerodynamics, and specific tyre compounds to extract every last fraction of a second.',
-    imgUrl: null,
-  },
-  rimac_nevera_15th: {
-    id: 'rimac_nevera_15th', companyId: 'rimac',
-    name: 'Nevera 15th Anniversary', year: 2024,
-    powertrain: 'Electric', bodyType: 'Hypercar', engine: 'Quad Electric Motors',
-    horsepower: 1914, topSpeed: 412, acceleration: 1.97,
-    price: 'Special', priceRaw: 0,
-    description: 'The Nevera 15th Anniversary Edition celebrates 15 years of Rimac Automobili with a unique specification car featuring exclusive bespoke livery and personalisation options selected by Mate Rimac himself.',
-    imgUrl: null,
-  },
-  rimac_concept_one: {
-    id: 'rimac_concept_one', companyId: 'rimac',
-    name: 'Concept_One', year: 2011,
-    powertrain: 'Electric', bodyType: 'Supercar', engine: 'Quad Electric Motors',
-    horsepower: 1088, topSpeed: 305, acceleration: 2.6,
-    price: '$1.0M', priceRaw: 1000000,
-    description: 'The Concept_One was Rimac\'s world debut — an electric supercar that shocked the automotive world in 2011. Long before electric hypercars were fashionable, this Croatian startup proved that EVs could be genuinely exciting performance machines.',
-    imgUrl: null,
-  },
-  rimac_concept_s: {
-    id: 'rimac_concept_s', companyId: 'rimac',
-    name: 'Concept_S', year: 2016,
-    powertrain: 'Electric', bodyType: 'Supercar', engine: 'Quad Electric Motors',
-    horsepower: 1384, topSpeed: 365, acceleration: 2.5,
-    price: '$1.8M', priceRaw: 1800000,
-    description: 'The Concept_S was Rimac\'s evolution of the Concept_One — a more aerodynamically advanced version with additional power and aggressive styling updates, previewing the direction that would eventually lead to the Nevera.',
-    imgUrl: null,
-  },
-  rimac_c_two: {
-    id: 'rimac_c_two', companyId: 'rimac',
-    name: 'C_Two', year: 2018,
-    powertrain: 'Electric', bodyType: 'Hypercar', engine: 'Quad Electric Motors',
-    horsepower: 1914, topSpeed: 412, acceleration: 1.85,
-    price: '$2.1M', priceRaw: 2100000,
-    description: 'The C_Two was the concept that became the Nevera, revealed at Geneva 2018. It demonstrated Rimac\'s Level 4 autonomous capabilities, facial recognition, and AI-based driver coaching — proving that electric hypercars could also be intelligent ones.',
     imgUrl: null,
   },
 };

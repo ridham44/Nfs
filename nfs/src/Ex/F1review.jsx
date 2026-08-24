@@ -33,8 +33,7 @@ const Review = () => {
             navigate('/login');
         } else {
             const userData = JSON.parse(loggedInUser);
-            console.log('User Data:', userData); // Check if username exists here
-            setUser(userData); // Set the parsed user object directly
+            setUser(userData);
         }
     }, [navigate]);
 
@@ -47,10 +46,8 @@ const Review = () => {
                 alert('You have already submitted a review for this team.');
                 return;
             }
-            console.log('Submitting review with name:', user.name); // Change this to user.name
-            // Submit the review
             await axios.post('http://localhost:5000/api/f1review', {
-                username: user.name, // Change this to user.name
+                username: user.name,
                 email: user.email,
                 review,
                 team: selectedTeam,

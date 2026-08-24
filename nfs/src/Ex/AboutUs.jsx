@@ -1,38 +1,10 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import React from 'react';
-import NFSlogo from '../img/NfsLogo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import '../App.css';
-import { useState, useEffect } from 'react';
 
-import Home from '../NFS.jsx';
-import AstonMartin from '../company/AstonMartin.jsx';
-import Bugatti from '../company/Bugatti.jsx';
-import Ferrari from '../company/Ferrari.jsx';
-import Koenigsegg from '../company/Koenigsegg.jsx';
-import Lamborghini from '../company/Lamborghini.jsx';
-import RollsRoyce from '../company/RollsRoyce.jsx';
-function App() {
-    return (
-        <Router>
-            <main>
-                <Routes>
-                    <Route path="/" element={<Home />} exact />
-                    <Route path="/AstonMartin" element={<AstonMartin />} exact />
-                    <Route path="/Bugatti" element={<Bugatti />} exact />
-                    <Route path="/Ferrari" element={<Ferrari />} exact />
-                    <Route path="/Koenigsegg" element={<Koenigsegg />} exact />
-                    <Route path="/Lamborghini" element={<Lamborghini />} exact />
-                    <Route path="/RollsRoyce" element={<RollsRoyce />} exact />
-                </Routes>
-            </main>
-        </Router>
-    );
-}
 const AboutUs = () => {
     
     return (

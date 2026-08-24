@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaYoutube } from 'react-icons/fa';
 import getCurrentDate from '../js/Date';
 
 const Footer = () => {
@@ -48,17 +48,11 @@ const Footer = () => {
                     <div className="footer__content">
                         <h3 className="footer__title">Follow Us</h3>
                         <div className="social-icons">
-                            <a href="https://www.instagram.com/nfs.44_/?img_index=1" target="_blank" rel="noreferrer" className="social-link">
+                            <a href="https://www.instagram.com/nfs.44_/?img_index=1" target="_blank" rel="noreferrer" className="social-link" aria-label="Instagram">
                                 <FaInstagram />
                             </a>
-                            <a href="https://www.youtube.com/channel/UCtbN_9YUU1gckJH8Z3bvOxw" target="_blank" rel="noreferrer" className="social-link">
+                            <a href="https://www.youtube.com/channel/UCtbN_9YUU1gckJH8Z3bvOxw" target="_blank" rel="noreferrer" className="social-link" aria-label="YouTube">
                                 <FaYoutube />
-                            </a>
-                            <a href="#" target="_blank" rel="noreferrer" className="social-link">
-                                <FaFacebookF />
-                            </a>
-                            <a href="#" target="_blank" rel="noreferrer" className="social-link">
-                                <FaTwitter />
                             </a>
                         </div>
                     </div>

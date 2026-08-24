@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { companies } from '../data/companies';
 import { getModelsByCompany } from '../data/models';
-import { bannerImages, logoImages, modelImages } from '../data/images';
+import { bannerImages, logoImages, modelImages, onlineModelImages } from '../data/images';
 import '../App.css';
 
 // ── Powertrain icon map
@@ -218,12 +218,12 @@ export default function CompanyPage() {
           ) : (
             <div className="cp-grid">
               {filtered.map((model) => {
-                const img = modelImages[model.id] || null;
+                const imgSources = [onlineModelImages[model.id], modelImages[model.id]].filter(Boolean);
                 return (
                   <ModelCard
                     key={model.id}
                     model={model}
-                    img={img}
+                    imgSources={imgSources}
                     companyId={companyId}
                     accentColor={accentColor}
                   />
@@ -240,12 +240,21 @@ export default function CompanyPage() {
 }
 
 // ── Sub-component: ModelCard
-function ModelCard({ model, img, companyId, accentColor }) {
+function ModelCard({ model, imgSources, companyId, accentColor }) {
+  const [imgIndex, setImgIndex] = useState(0);
+  const currentImg = imgSources && imgSources[imgIndex];
+
   return (
-    <Link to={`/model/${companyId}/${model.id}`} className="mc-card">
+    <Link to={`/model/${companyId}/${model.id}`} className="mc-card glass-panel">
       <div className="mc-img-wrap">
-        {img ? (
-          <img src={img} alt={model.name} className="mc-img" />
+        {currentImg ? (
+          <img
+            src={currentImg}
+            alt={model.name}
+            className="mc-img"
+            loading="lazy"
+            onError={() => setImgIndex((prev) => prev + 1)}
+          />
         ) : (
           <div className="mc-img-placeholder">
             <span className="mc-placeholder-text">{model.name}</span>
@@ -275,7 +284,7 @@ function ModelCard({ model, img, companyId, accentColor }) {
             <span className="mc-stat-lbl">km/h</span>
           </div>
           <div className="mc-stat">
-            <span className="mc-stat-val">{model.horsepower}</span>
+            <span className="mc-stat-val">{model.horsepower.toLocaleString('en-US')}</span>
             <span className="mc-stat-lbl">hp</span>
           </div>
         </div>
