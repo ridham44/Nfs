@@ -1,9 +1,10 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import React, { useState } from "react";
 import axios from "axios";
 import "../App.css";
 
 const Review = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [reviewData, setReviewData] = useState({
     name: "",
     email: "",
@@ -44,18 +45,12 @@ const Review = () => {
 
   return (
     <>
+      <Navbar />
       <div className="form-background">
         <div className="form-container">
           <h2 className="title_head">Submit Your Review</h2>
           <form onSubmit={handleSubmit}>
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="text"
               name="name"
               placeholder="Your Name"
@@ -64,13 +59,6 @@ const Review = () => {
               required
             />
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="email"
               name="email"
               placeholder="Your Email"
@@ -79,40 +67,19 @@ const Review = () => {
               required
             />
             <textarea
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               name="review"
               placeholder="Your Review"
               value={reviewData.review}
               onChange={handleChange}
               required
             />
-            <button
-              type="submit"
-              className="submit-btn"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{
-                width: "100%",
-                padding: "10px",
-                backgroundColor: isHovered ? "#218838" : "#28a745", // Change colors on hover
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                transition: "background-color 0.3s", // Smooth transition
-              }}
-            >
+            <button type="submit" className="submit-btn">
               Submit Review
             </button>
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

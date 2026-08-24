@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import React, { useState } from "react";
 import axios from "axios";
 import {
@@ -56,6 +58,7 @@ const Signup = () => {
 
   return (
     <>
+      <Navbar />
       <div className="form-background">
         <div className="form-container">
           <h2 className="title_head">Signup</h2>
@@ -108,6 +111,7 @@ const Signup = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

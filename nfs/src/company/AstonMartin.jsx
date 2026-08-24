@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import React from 'react';
 import NFSlogo from '../img/NfsLogo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import '../App.css';
 import Home from '../NFS.jsx';
 //import { useState, useEffect } from "react";
-import getCurrentDate from '../js/Date.js';
+
 import Bugatti from './Bugatti.jsx';
 import Ferrari from './Ferrari.jsx';
 import Koenigsegg from './Koenigsegg.jsx';
@@ -44,68 +46,11 @@ function App() {
     );
 }
 export const AstonMartin = () => {
-    const date = getCurrentDate();
+    
     return (
         <>
             {/* NavBar and header */}
-            <header id="header">
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className="container-fluid">
-                        <div className="navbar-brand">
-                            <Link to="/">
-                                <img src={NFSlogo} alt="NFS Logo" style={{ width: '75px' }} className="rounded-pill" />
-                            </Link>
-                        </div>
-                        <div id="header_heading" className="text-white">
-                            <h3>NFS: Car Review and Information - Website</h3>
-                        </div>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav ms-auto">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                        Car Brands
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li>
-                                            <Link to="/Bugatti" className="dropdown-item">
-                                                Bugatti
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Ferrari" className="dropdown-item">
-                                                Ferrari
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Koenigsegg" className="dropdown-item">
-                                                Koenigsegg
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Lamborghini" className="dropdown-item">
-                                                Lamborghini
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/RollsRoyce" className="dropdown-item">
-                                                Rolls Royce
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/">
-                                        Home
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+            <Navbar />
 
             {/* Banner */}
             <section className="banner">
@@ -177,11 +122,6 @@ export const AstonMartin = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 col-sm-12">
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
                                 <div className="about__data">
                                     <p className="about__description">
                                         The Aston Martin Valkyrie is a hypercar developed in collaboration with Red Bull Racing, offering a
@@ -209,64 +149,7 @@ export const AstonMartin = () => {
             <br></br>
 
             {/* Footer */}
-            <footer className="footer">
-                <div className="footer__container">
-                    <div className="footer__content">
-                        <a href="#" className="footer__logo">
-                            NFS
-                        </a>
-                        <p className="footer__description">Explore car reviews, specs, and history from the best brands in the world.</p>
-                    </div>
-                    <div className="footer__content">
-                        <p className="footer__logo">Contact us:</p>
-                        <p className="footer__description">
-                            Mobile No : +91 9123456789
-                            <br />
-                            Email : nfs@gmail.com
-                        </p>
-                    </div>
-                    <div className="footer__content">
-                        <h3 className="footer__title">Company</h3>
-                        <ul className="footer__links__list">
-                            <li>
-                                <Link to="/PrivatePolicy" className="footer__link">
-                                    Privacy & Policy
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/AboutUs" className="footer__link">
-                                    About us
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="footer__content">
-                        <p className="footer__logo">Follow us:</p>
-                        <div className="social-icons">
-                            <a href="https://www.instagram.com/nfs.44_/" target="_blank" rel="noreferrer">
-                                <FaInstagram />
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCtbN_9YUU1gckJH8Z3bvOxw" target="_blank" rel="noreferrer">
-                                <FaYoutube />
-                            </a>
-                            <a href="#" target="_blank" rel="noreferrer">
-                                <FaFacebookF />
-                            </a>
-                            <a href="#" target="_blank" rel="noreferrer">
-                                <FaTwitter />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-            <footer className="footer">
-                <span className="footer__copy">
-                    Ridham Patel&#169;All rights reserved
-                    <br />
-                    {date}
-                </span>
-            </footer>
+            <Footer />
         </>
     );
 };

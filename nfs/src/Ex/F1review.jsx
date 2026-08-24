@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -64,27 +66,31 @@ const Review = () => {
     };
 
     return (
-        <div>
-            <div className="form-container">
-                <h1>Submit Your F1 Team Review</h1>
-                <form onSubmit={handleSubmit}>
-                    <select value={selectedTeam} onChange={(e) => setSelectedTeam(e.target.value)} required>
-                        <option value="" disabled>
-                            Select an F1 Team
-                        </option>
-                        {teams.map((team) => (
-                            <option key={team.id} value={team.name}>
-                                {team.name}
+        <>
+            <Navbar />
+            <div className="form-background">
+                <div className="form-container">
+                    <h1 className="title_head">Submit Your F1 Team Review</h1>
+                    <form onSubmit={handleSubmit}>
+                        <select value={selectedTeam} onChange={(e) => setSelectedTeam(e.target.value)} required>
+                            <option value="" disabled>
+                                Select an F1 Team
                             </option>
-                        ))}
-                    </select>
-                    <textarea value={review} onChange={(e) => setReview(e.target.value)} placeholder="Write your review here..." required />
-                    <button class="button" type="submit">
-                        Submit Review
-                    </button>
-                </form>
+                            {teams.map((team) => (
+                                <option key={team.id} value={team.name}>
+                                    {team.name}
+                                </option>
+                            ))}
+                        </select>
+                        <textarea value={review} onChange={(e) => setReview(e.target.value)} placeholder="Write your review here..." required />
+                        <button className="submit-btn" type="submit">
+                            Submit Review
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 

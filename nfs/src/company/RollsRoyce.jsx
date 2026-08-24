@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import React from 'react';
 import NFSlogo from '../img/NfsLogo.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import '../App.css';
 import Home from '../NFS.jsx';
 import { useState, useEffect } from 'react';
-import getCurrentDate from '../js/Date.js';
+
 import AstonMartin from './AstonMartin.jsx';
 import Bugatti from './Bugatti.jsx';
 import Koenigsegg from './Koenigsegg.jsx';
@@ -46,98 +48,11 @@ function App() {
     );
 }
 const RollsRoyce = () => {
-    const date = getCurrentDate();
+    
     return (
         <>
             {/*--------------------    NavBar   --------------------- */}
-            <header id="header">
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className="container-fluid">
-                        {/* Logo */}
-                        <div className="navbar-brand">
-                            <Link to="/">
-                                <img src={NFSlogo} alt="NFS Logo" style={{ width: '75px' }} className="rounded-pill" />
-                            </Link>
-                        </div>
-
-                        {/* Website Title */}
-                        <div id="header_heading" className="text-white">
-                            <h3>NFS: Car Review and Information - Website</h3>
-                        </div>
-
-                        {/* Mobile Toggle Button */}
-                        <button
-                            className="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav"
-                            aria-controls="navbarNav"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-
-                        {/* Navbar Links */}
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav ms-auto">
-                                {/* Dropdown Menu */}
-                                <li className="nav-item dropdown">
-                                    <a
-                                        className="nav-link dropdown-toggle"
-                                        href="#"
-                                        id="navbarDropdown"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Car Brands
-                                    </a>
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li>
-                                            <Link to="/AstonMartin" className="dropdown-item">
-                                                Aston Martin
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Bugatti" className="dropdown-item">
-                                                Bugatti
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Ferrari" className="dropdown-item">
-                                                Ferrari
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Koenigsegg" className="dropdown-item">
-                                                Koenigsegg
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Lamborghini" className="dropdown-item">
-                                                Lamborghini
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/RollsRoyce" className="dropdown-item">
-                                                Rolls Royce
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                {/* Other Navbar Links */}
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/">
-                                        Home
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+            <Navbar />
             {/*--------------------     Banner section    --------------------- */}
             <section class="banner">
                 <div class="container-fluid">
@@ -201,11 +116,6 @@ const RollsRoyce = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-sm-12">
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
                                     <div className="about__data">
                                         <p className="about__description">
                                             The Rolls-Royce Cullinan is a luxury SUV that epitomizes opulence and off-road capability.
@@ -226,8 +136,6 @@ const RollsRoyce = () => {
                 </div>
             </section>
             <hr />
-            <br />
-            <br />
             <section className="about section" id="about">
                 <div className="about__container container grid">
                     <div className="about__group">
@@ -244,11 +152,6 @@ const RollsRoyce = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-sm-12">
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
                                     <div className="about__data">
                                         <p className="about__description">
                                             The new Rolls-Royce coupe model: the Spectre. It’s priced and positioned between the Cullinan
@@ -268,8 +171,6 @@ const RollsRoyce = () => {
                 </div>
             </section>
             <hr />
-            <br />
-            <br />
             <section className="about section" id="about">
                 <div className="about__container container grid">
                     <div className="about__group">
@@ -286,11 +187,6 @@ const RollsRoyce = () => {
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-sm-12">
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
-                                    <br />
                                     <div className="about__data">
                                         <p className="about__description">
                                             The Rolls-Royce Ghost is a luxury sedan that combines elegance with modern technology. Powered
@@ -312,75 +208,7 @@ const RollsRoyce = () => {
             </section>
             <hr />
             {/*--------------------     Footer section    --------------------- */}
-            <footer className="footer">
-                <div className="footer__container">
-                    {/* First Column */}
-                    <div className="footer__content">
-                        <a href="#" className="footer__logo">
-                            NFS
-                        </a>
-                        <p className="footer__description">
-                            Dive into a compact hub of automotive wisdom with our website. From engine intricacies to model comparisons,
-                            we're your passport to informed car choices, packed into every byte.
-                        </p>
-                    </div>
-                    {/* Contact Info Modal */}
-                    <div className="footer__content">
-                        <p className="footer__logo">Contact us:</p>
-                        <p className="footer__description">
-                            Mobile No : +91 9123456789
-                            <br />
-                            Email : nfs@gmail.com
-                        </p>
-                    </div>
-                    {/* Second Column */}
-                    <div className="footer__content">
-                        <h3 className="footer__title">Company</h3>
-                        <div className="footer__links">
-                            <ul className="footer__links__list">
-                                <li>
-                                    <Link to="/PrivatePolicy" className="footer__link">
-                                        Privacy & Policy
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/AboutUs" className="footer__link">
-                                        About us
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Third Column */}
-                    <div className="footer__content">
-                        <p className="footer__logo">Follow us:</p>
-                        <div className="social-icons">
-                            <br />
-                            <a href="https://www.instagram.com/nfs.44_/?img_index=1" target="_blank" rel="noreferrer">
-                                <FaInstagram />
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCtbN_9YUU1gckJH8Z3bvOxw" target="_blank" rel="noreferrer">
-                                <FaYoutube />
-                            </a>
-                            <a href="#" target="_blank" rel="noreferrer">
-                                <FaFacebookF />
-                            </a>
-                            <a href="#" target="_blank" rel="noreferrer">
-                                <FaTwitter />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-            <footer className="footer">
-                <span className="footer__copy">
-                    Ridham Patel&#169;All rights reserved
-                    <br />
-                    {date}
-                </span>
-            </footer>
+            <Footer />
         </>
     );
 };

@@ -1,8 +1,9 @@
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import "../App.css";
 const SubscribeForm = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -54,6 +55,7 @@ const SubscribeForm = () => {
 
   return (
     <>
+      <Navbar />
       <div className="form-background">
         <div className="form-container">
           <form className="subscription-form" onSubmit={handleSubmit}>
@@ -63,16 +65,8 @@ const SubscribeForm = () => {
               enthusiasts. For just $50 per year, you’ll gain access to a world
               of benefits that will fuel your passion for cars.
             </h6>
-            {error && <p className="error-message">{error}</p>}{" "}
-            {/* Display error message if any */}
+            {error && <p className="error-message">{error}</p>}
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="text"
               placeholder="Name"
               value={name}
@@ -80,28 +74,13 @@ const SubscribeForm = () => {
               required
             />
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <br />
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="text"
               placeholder="Credit Card Number"
               value={cardNumber}
@@ -109,15 +88,7 @@ const SubscribeForm = () => {
               maxLength={16}
               required
             />
-            <br />
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="text"
               placeholder="CVV"
               value={cvv}
@@ -126,31 +97,13 @@ const SubscribeForm = () => {
               required
             />
             <input
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
               type="text"
               placeholder="Expiry Date (MM/YY)"
               value={expiryDate}
               onChange={(e) => setExpiryDate(e.target.value)}
               required
             />
-            <select
-              style={{
-                width: "100%",
-                padding: "10px",
-                margin: "10px 0",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
-              value={bank}
-              onChange={(e) => setBank(e.target.value)}
-              required
-            >
+            <select value={bank} onChange={(e) => setBank(e.target.value)} required>
               <option value="">Select Your Bank</option>
               <option value="Chase">JPMorgan Chase</option>
               <option value="Bank of America">Bank of America</option>
@@ -158,28 +111,13 @@ const SubscribeForm = () => {
               <option value="Goldman Sachs">Goldman Sachs</option>
               <option value="Bank Of Montreal">Bank Of Montreal</option>
             </select>
-            <br />
-            <button
-              type="submit"
-              className="submit-btn"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{
-                width: "100%",
-                padding: "10px",
-                backgroundColor: isHovered ? "#218838" : "#28a745", // Change colors on hover
-                color: "white",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                transition: "background-color 0.3s", // Smooth transition
-              }}
-            >
+            <button type="submit" className="submit-btn">
               Subscribe
             </button>
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
