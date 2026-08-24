@@ -34,26 +34,12 @@ export default function CompanyPage() {
   const [filterBody, setFilterBody] = useState('All');
   const [sortBy, setSortBy] = useState('year');
 
-  if (!company) {
-    return (
-      <>
-        <Navbar />
-        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '1rem' }}>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem' }}>BRAND NOT FOUND</h2>
-          <Link to="/" className="button">Return Home</Link>
-        </div>
-        <Footer />
-      </>
-    );
-  }
+  // All hooks must be called unconditionally — before any early return
+  const allModels = useMemo(
+    () => (company ? getModelsByCompany(companyId) : []),
+    [companyId, company]
+  );
 
-  const allModels = getModelsByCompany(companyId);
-  const bannerImg = bannerImages[company.bannerKey] || null;
-  const logoImg = company.logoKey ? logoImages[company.logoKey] : null;
-  const gradient = gradients[companyId] || gradients.porsche;
-  const accentColor = company.accentColor || '#fff';
-
-  // Derive unique filter options from actual model data
   const powertrains = useMemo(() => {
     const set = new Set(allModels.map((m) => m.powertrain));
     return ['All', ...Array.from(set)];
@@ -76,6 +62,25 @@ export default function CompanyPage() {
   }, [allModels, filterPowertrain, filterBody, sortBy]);
 
   const resetFilters = () => { setFilterPowertrain('All'); setFilterBody('All'); setSortBy('year'); };
+
+  if (!company) {
+    return (
+      <>
+        <Navbar />
+        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '1rem' }}>
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem' }}>BRAND NOT FOUND</h2>
+          <Link to="/" className="button">Return Home</Link>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+
+  const bannerImg = bannerImages[company.bannerKey] || null;
+  const logoImg = company.logoKey ? logoImages[company.logoKey] : null;
+  const gradient = gradients[companyId] || gradients.porsche;
+  const accentColor = company.accentColor || '#fff';
 
   return (
     <>

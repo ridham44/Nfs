@@ -99,18 +99,37 @@
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 1.25rem;
-  min-width: 600px;
+  min-width: 420px;
+  max-width: 450px;
+  max-height: 70vh;
+  overflow-y: auto;
   box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 }
+
+/* Custom scrollbar for mega dropdown */
+.nfs-mega-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+.nfs-mega-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nfs-mega-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+.nfs-mega-dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .nfs-mega-inner {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
 }
 .nfs-mega-item {
   display: flex;
   flex-direction: column;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   border: 1px solid transparent;
   border-radius: 8px;
   text-decoration: none;
@@ -122,18 +141,23 @@
   border-color: var(--glass-border);
 }
 .nfs-mega-name {
-  color: var(--text-accent);
+  color: var(--text-muted);
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 0.15rem;
+  transition: color 0.25s ease;
+}
+.nfs-mega-item:hover .nfs-mega-name {
+  color: var(--text-accent);
 }
 .nfs-mega-country {
   color: var(--text-muted);
   font-size: 0.72rem;
   font-family: var(--font-body);
   letter-spacing: 0;
+  opacity: 0.7;
 }
 .glass-header--scrolled {
   background: rgba(3, 3, 3, 0.92);
@@ -839,12 +863,6 @@
   .cp-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .nfs-mega-dropdown {
-    min-width: 480px;
-  }
-  .nfs-mega-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media (max-width: 991px) {
   .cp-info__grid {
@@ -862,8 +880,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .nfs-mega-dropdown {
-    min-width: 100%;
-    max-width: 400px;
+    /* Keep it fixed width on tablet where navbar is still horizontal */
+    min-width: 400px;
+    max-width: 420px;
   }
   .mp-hero {
     height: 70vh;
@@ -904,12 +923,14 @@
   }
   .nfs-mega-dropdown {
     position: static !important;
-    min-width: auto;
+    min-width: 100%;
+    max-width: 100%;
     border-radius: 8px;
     margin-top: 0.5rem;
+    max-height: 50vh;
   }
   .nfs-mega-inner {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* 1 column on mobile menus */
   }
 }
 @media (max-width: 576px) {
@@ -928,9 +949,6 @@
   }
   .cp-hero__name {
     font-size: 2.5rem;
-  }
-  .nfs-mega-inner {
-    grid-template-columns: 1fr;
   }
   .mp-hero {
     height: 80vh;

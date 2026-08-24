@@ -5,17 +5,17 @@ import NFSlogo from '../img/NfsLogo.jpg';
 
 const brands = [
   { id: 'bugatti',     name: 'Bugatti',      country: 'France' },
-  { id: 'ferrari',     name: 'Ferrari',      country: 'Italy' },
   { id: 'lamborghini', name: 'Lamborghini',  country: 'Italy' },
+  { id: 'ferrari',     name: 'Ferrari',      country: 'Italy' },
   { id: 'rollsroyce',  name: 'Rolls-Royce',  country: 'UK' },
   { id: 'astonmartin', name: 'Aston Martin', country: 'UK' },
   { id: 'koenigsegg',  name: 'Koenigsegg',   country: 'Sweden' },
-  { id: 'porsche',     name: 'Porsche',       country: 'Germany' },
-  { id: 'mclaren',     name: 'McLaren',       country: 'UK' },
-  { id: 'pagani',      name: 'Pagani',        country: 'Italy' },
-  { id: 'pininfarina', name: 'Pininfarina',   country: 'Italy' },
-  { id: 'maserati',    name: 'Maserati',      country: 'Italy' },
-  { id: 'rimac',       name: 'Rimac',         country: 'Croatia' },
+  { id: 'porsche',     name: 'Porsche',      country: 'Germany' },
+  { id: 'mclaren',     name: 'McLaren',      country: 'UK' },
+  { id: 'pagani',      name: 'Pagani',       country: 'Italy' },
+  { id: 'pininfarina', name: 'Pininfarina',  country: 'Italy' },
+  { id: 'maserati',    name: 'Maserati',     country: 'Italy' },
+  { id: 'rimac',       name: 'Rimac',        country: 'Croatia' },
 ];
 
 const Navbar = () => {

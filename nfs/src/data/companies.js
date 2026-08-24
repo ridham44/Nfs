@@ -29,7 +29,7 @@ export const companies = {
     parent: 'Exor N.V.',
     status: 'Active',
     description:
-      'Ferrari N.V. is an Italian luxury sports car manufacturer based in Maranello. Synonymous with motorsport excellence, Ferrari's road cars are renowned for their raw performance, iconic Prancing Horse badge, and deeply emotional connection to racing heritage.',
+      "Ferrari N.V. is an Italian luxury sports car manufacturer based in Maranello. Synonymous with motorsport excellence, Ferrari's road cars are renowned for their raw performance, iconic Prancing Horse badge, and deeply emotional connection to racing heritage.",
     accentColor: '#e53e3e',
     bannerKey: 'ferrari',
     logoKey: 'ferrariLogo',
@@ -61,7 +61,7 @@ export const companies = {
     parent: 'BMW Group',
     status: 'Active',
     description:
-      'Rolls-Royce Motor Cars is the pinnacle of British automotive luxury. Each vehicle is hand-built to the customer's exact specification in Goodwood, representing the absolute summit of craftsmanship, comfort, and prestige that money can buy.',
+      "Rolls-Royce Motor Cars is the pinnacle of British automotive luxury. Each vehicle is hand-built to the customer's exact specification in Goodwood, representing the absolute summit of craftsmanship, comfort, and prestige that money can buy.",
     accentColor: '#9f7aea',
     bannerKey: 'rollsroyce',
     logoKey: 'rollsroyceLogo',
@@ -109,7 +109,7 @@ export const companies = {
     parent: 'Volkswagen Group',
     status: 'Active',
     description:
-      'Dr. Ing. h.c. F. Porsche AG is a German automobile manufacturer specialising in high-performance sports cars, SUVs, and sedans. Porsche's motorsport DNA, embodied in the iconic 911, makes it one of the most technically accomplished and beloved brands in the world.',
+      "Dr. Ing. h.c. F. Porsche AG is a German automobile manufacturer specialising in high-performance sports cars, SUVs, and sedans. Porsche's motorsport DNA, embodied in the iconic 911, makes it one of the most technically accomplished and beloved brands in the world.",
     accentColor: '#a0aec0',
     bannerKey: 'porsche',
     logoKey: null,
@@ -157,7 +157,7 @@ export const companies = {
     parent: 'Mahindra Group',
     status: 'Active',
     description:
-      'Automobili Pininfarina is the Italian ultra-luxury electric vehicle brand, rooted in a century of legendary design heritage. The brand's hyper GT cars combine the aesthetics of the finest Italian coachbuilders with cutting-edge electric powertrains.',
+      "Automobili Pininfarina is the Italian ultra-luxury electric vehicle brand, rooted in a century of legendary design heritage. The brand's hyper GT cars combine the aesthetics of the finest Italian coachbuilders with cutting-edge electric powertrains.",
     accentColor: '#fc8181',
     bannerKey: 'pininfarina',
     logoKey: null,
